@@ -14,3 +14,7 @@ venv/
 # Matplotlib / temp
 .matplotlib/
 *.tmp
+
+# Make scratch outputs
+build/
+test_run/
