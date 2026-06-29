@@ -1,0 +1,48 @@
+name: Reproduce analysis
+
+# Smoke test: re-run the full pipeline from the source data on every push / PR
+# and confirm it exits cleanly and produces the workbook + key figures.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run full pipeline
+        run: python code/run_all.py --output ci_out
+
+      - name: Verify expected outputs exist
+        run: |
+          set -e
+          test -f ci_out/triage_analysis_results.xlsx
+          for f in fig1_direction_by_dataset fig2_dist_comparisons \
+                   fig3_cc_concordance fig4_promptcount_multiturn \
+                   table1_descriptives extended_data_fig1_study_design \
+                   extended_data_table1_prompt_derivation \
+                   supp_table_grader_reliability; do
+            test -f "ci_out/figures/$f.png"
+            test -f "ci_out/figures/$f.pdf"
+          done
+          echo "All expected outputs present."
+
+      - name: Upload regenerated outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-results
+          path: ci_out/
+          retention-days: 7
