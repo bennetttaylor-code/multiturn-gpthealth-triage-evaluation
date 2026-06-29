@@ -89,7 +89,7 @@ Two de-identified Excel inputs in `data/`:
 | `Grader` | Grader ID (1–5) |
 | `Patient Chief Complaint` | Free-text complaint category |
 | `Age`, `Gender` | Demographics (ED dataset only) |
-| `Clinician Consensus` | Clinician-adjudicated level (A–D, or range A/B, B/C, C/D) |
+| `Clinician Adjudication` | Clinician-adjudicated level (A–D, or range A/B, B/C, C/D) |
 | `GPT Natural Prompt Count` | Turns in the natural condition |
 | `GPT Natural Triage Decision (A-D)` | Natural primary decision |
 | `GPT Natural Reviewer` | Natural reviewer decision |

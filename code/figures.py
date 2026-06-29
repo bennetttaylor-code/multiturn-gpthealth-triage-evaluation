@@ -150,7 +150,7 @@ print("Loading data...")
 df_raw = pd.read_excel(RAW_XLS, sheet_name=0, header=0)
 df_raw.columns = [str(c).strip() for c in df_raw.columns]
 COL_MAP = {'DATASET':'dataset','Prompt':'prompt','Grader':'grader',
-           'Patient Chief Complaint':'complaint','Clinician Consensus':'cc_raw',
+           'Patient Chief Complaint':'complaint','Clinician Adjudication':'cc_raw',
            'GPT Natural Prompt Count':'nat_count',
            'GPT Natural Triage Decision (A-D)':'nat_triage_raw',
            'GPT Natural Reviewer':'nat_reviewer_raw',
