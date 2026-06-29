@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite both the article and this repository."
+title: "Conversational interaction does not ensure triage-disposition alignment in ChatGPT Health: analysis code and data"
+type: software
+version: 1.0.0
+date-released: 2026-06-29
+license: MIT
+repository-code: "https://github.com/REPLACE_OWNER/REPLACE_REPO"
+# doi: 10.5281/zenodo.XXXXXXX   # add after the first Zenodo release
+authors:
+  - { given-names: Alvira,      family-names: Tyagi,      affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: Bennett,     family-names: Taylor,     affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: Pushkala,    family-names: Jayaraman,  affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: Mateen,      family-names: Jangda,     affiliation: "University of Miami Miller School of Medicine" }
+  - { given-names: Joy,         family-names: Jiang,      affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: "Michael A.", family-names: Gorin,     affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: Hannah,      family-names: Hugo,       affiliation: "NYC Health + Hospitals / Elmhurst" }
+  - { given-names: Nicholas,    family-names: Gavin,      affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: Robert,      family-names: Freeman,    affiliation: "Mount Sinai Health System" }
+  - { given-names: "Alexander W.", family-names: Charney, affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: Ankit,       family-names: Sakhuja,    affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: Yuan,        family-names: Luo,        affiliation: "Northwestern University Feinberg School of Medicine" }
+  - { given-names: Lisa,        family-names: Stump,      affiliation: "Mount Sinai Health System" }
+  - { given-names: Ashwin,      family-names: Ramaswamy,  affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: "Girish N.", family-names: Nadkarni,   affiliation: "Icahn School of Medicine at Mount Sinai" }
+  - { given-names: "Bilal A.",  family-names: Naved,      affiliation: "Icahn School of Medicine at Mount Sinai" }
+keywords:
+  - artificial intelligence
+  - patient safety
+  - clinical triage
+  - large language models
+  - ChatGPT

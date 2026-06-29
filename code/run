@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Reproducible entrypoint (used by Code Ocean; also works locally).
+set -euo pipefail
+cd "$(dirname "$0")"
+
+if [ -d /data ] && [ -d /results ]; then
+    # Code Ocean layout: data mounted read-only at /data, outputs written to /results
+    python -u run_all.py --input  /data/triage_evaluation_dataset.xlsx \
+                         --prompts /data/prompt_derivation.xlsx \
+                         --output /results
+else
+    # Local / GitHub clone layout: repository-relative defaults
+    python -u run_all.py
+fi

@@ -1,0 +1,24 @@
+Data and Figures License — Creative Commons Attribution 4.0 International (CC BY 4.0)
+===================================================================================
+
+The datasets in `data/` and the analysis outputs in `results/` (the results
+workbook and all figures/tables) are licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
+
+You are free to:
+  - Share  — copy and redistribute the material in any medium or format
+  - Adapt  — remix, transform, and build upon the material for any purpose,
+             even commercially
+
+Under the following terms:
+  - Attribution — You must give appropriate credit (cite the associated
+    publication and this repository / Zenodo DOI), provide a link to the
+    license, and indicate if changes were made.
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+NOTE: The clinical data are de-identified and were derived retrospectively;
+see the associated publication's Methods for provenance and ethics statement.
+The software (contents of `code/`) is licensed separately under the MIT License
+(see LICENSE).

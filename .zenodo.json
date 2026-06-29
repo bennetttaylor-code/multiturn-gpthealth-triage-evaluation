@@ -1,0 +1,33 @@
+{
+  "title": "Conversational interaction does not ensure triage-disposition alignment in ChatGPT Health: analysis code and data",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "description": "Analysis code, source dataset, results workbook, and publication figures for an evaluation of ChatGPT Health on 255 clinical triage cases against nurse-triage and clinician-adjudicated reference standards. Software is released under the MIT License; the data and figures are released under CC BY 4.0 (see LICENSE-data).",
+  "keywords": [
+    "artificial intelligence",
+    "patient safety",
+    "clinical triage",
+    "large language models",
+    "ChatGPT",
+    "symptom checker"
+  ],
+  "creators": [
+    { "name": "Tyagi, Alvira", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Taylor, Bennett", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Jayaraman, Pushkala", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Jangda, Mateen", "affiliation": "University of Miami Miller School of Medicine" },
+    { "name": "Jiang, Joy", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Gorin, Michael A.", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Hugo, Hannah", "affiliation": "NYC Health + Hospitals / Elmhurst" },
+    { "name": "Gavin, Nicholas", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Freeman, Robert", "affiliation": "Mount Sinai Health System" },
+    { "name": "Charney, Alexander W.", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Sakhuja, Ankit", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Luo, Yuan", "affiliation": "Northwestern University Feinberg School of Medicine" },
+    { "name": "Stump, Lisa", "affiliation": "Mount Sinai Health System" },
+    { "name": "Ramaswamy, Ashwin", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Nadkarni, Girish N.", "affiliation": "Icahn School of Medicine at Mount Sinai" },
+    { "name": "Naved, Bilal A.", "affiliation": "Icahn School of Medicine at Mount Sinai" }
+  ]
+}

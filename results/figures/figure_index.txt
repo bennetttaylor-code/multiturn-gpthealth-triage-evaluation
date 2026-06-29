@@ -1,0 +1,54 @@
+FIGURE INDEX — Triage Analysis Publication Figures
+============================================================
+
+MAIN FIGURES
+----------------------------------------
+fig1_direction_by_dataset.png/pdf
+  Figure 1: Under-triage / correct / over-triage by interaction condition and dataset.
+fig2_dist_comparisons.png/pdf
+  Figure 2: Clinical distance-score distributions vs. clinician-adjudicated and nurse triage.
+fig3_cc_concordance.png/pdf
+  Figure 3: Concordance between clinician-adjudicated and nurse-triage standards
+  (distribution of category differences).
+fig4_promptcount_multiturn.png/pdf
+  Figure 4: Multiturn prompt count vs. clinical distance from nurse triage (Spearman).
+
+TABLE
+----------------------------------------
+table1_descriptives.png/pdf
+  Table 1: Case characteristics by dataset (booktabs style).
+
+EXTENDED DATA
+----------------------------------------
+extended_data_fig1_study_design.png/pdf
+  Extended Data Figure 1: Study design and analysis workflow.
+
+SUPPLEMENTARY FIGURES
+----------------------------------------
+figS1_confusion_matrices.png/pdf
+  Supplementary Figure 1: 4×4 confusion matrices, Natural & Multiturn vs. both references.
+figS2_sensitivity_forest.png/pdf
+  Supplementary Figure 2: Sensitivity forest (primary/conservative/aggressive resolution).
+figS3_triage_direction_by_level.png/pdf
+  Supplementary Figure 3: Under/correct/over stratified by reference triage level (A–D).
+figS4_promptcount.png/pdf
+  Supplementary Figure 4: Prompt count vs. distance scatter (all conditions × references).
+figS5_complaint_heatmap.png/pdf
+  Supplementary Figure 5: Performance heatmap by chief-complaint category.
+figS6_cc_vs_nurse_confusion.png/pdf
+  Supplementary Figure 6: Clinician-adjudicated vs. nurse-triage agreement matrix.
+
+============================================================
+RENDER STATUS:
+  figS1_confusion_matrices: OK
+  fig2_dist_comparisons: OK
+  figS2_sensitivity_forest: OK
+  fig1_direction_by_dataset: OK
+  figS3_triage_direction_by_level: OK
+  figS5_complaint_heatmap: OK
+  figS4_promptcount: OK
+  figS6_cc_vs_nurse_confusion: OK
+  table1_descriptives: OK
+  fig3_cc_concordance: OK
+  fig4_promptcount_multiturn: OK
+  extended_data_fig1_study_design: OK
