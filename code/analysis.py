@@ -1561,7 +1561,49 @@ for restrict in [False, True]:
 pd.DataFrame(rows_b, columns=asym_cols).to_excel(writer, sheet_name=sn11, startrow=r11, index=False)
 r11 += len(rows_b) + 2
 
-style_sheet(writer.sheets[sn11], title_row=1, header_rows=[hdr_a, hdr_b])
+# --- 11C: Over-triage rate vs. each reference standard, with 95% CI ---
+pd.DataFrame([['11C: Over-triage Rate vs. Each Reference Standard']]).to_excel(
+    writer, sheet_name=sn11, startrow=r11, index=False, header=False); r11 += 1
+pd.DataFrame([[
+    "Over-triage rate = proportion of all cases (not just disagreements) where the LLM decision range "
+    "was entirely above the reference level. 95% CI is the exact (Clopper–Pearson) interval on the "
+    "over-triage proportion."
+]]).to_excel(writer, sheet_name=sn11, startrow=r11, index=False, header=False); r11 += 2
+hdr_c = r11 + 1
+
+def over_ci_row(label, n, n_over):
+    p, lo, hi = wilson_ci(n_over, n)
+    return [label, n, n_over, f"{p*100:.1f}%", f"({lo*100:.1f}%, {hi*100:.1f}%)"]
+
+over_cols = ['Comparison', 'N', 'N Over-triage', 'Over-triage (%)', '95% CI']
+rows_c = [
+    over_ci_row('Natural vs. Nurse Triage', m2a['n'], m2a['n_over']),
+    over_ci_row('Multiturn vs. Nurse Triage', m2b['n'], m2b['n_over']),
+    over_ci_row('Natural vs. Clinician-Adjudicated', m3b_nat['n'], m3b_nat['n_over']),
+    over_ci_row('Multiturn vs. Clinician-Adjudicated', m3b_mt['n'], m3b_mt['n_over']),
+]
+pd.DataFrame(rows_c, columns=over_cols).to_excel(writer, sheet_name=sn11, startrow=r11, index=False)
+r11 += len(rows_c) + 2
+
+# --- Utilization-critical over-triage (>=2 steps above reference), with 95% CI ---
+pd.DataFrame([[
+    "Utilization-critical over-triage (≥2 steps above reference), with 95% CI"
+]]).to_excel(writer, sheet_name=sn11, startrow=r11, index=False, header=False); r11 += 1
+hdr_c2 = r11 + 1
+
+def n_over_2plus(m):
+    return m['over_by_step'][2] + m['over_by_step'][3]
+
+rows_c2 = [
+    over_ci_row('Natural vs. Nurse Triage', m2a['n'], n_over_2plus(m2a)),
+    over_ci_row('Multiturn vs. Nurse Triage', m2b['n'], n_over_2plus(m2b)),
+    over_ci_row('Natural vs. Clinician-Adjudicated', m3b_nat['n'], n_over_2plus(m3b_nat)),
+    over_ci_row('Multiturn vs. Clinician-Adjudicated', m3b_mt['n'], n_over_2plus(m3b_mt)),
+]
+pd.DataFrame(rows_c2, columns=over_cols).to_excel(writer, sheet_name=sn11, startrow=r11, index=False)
+r11 += len(rows_c2) + 2
+
+style_sheet(writer.sheets[sn11], title_row=1, header_rows=[hdr_a, hdr_b, hdr_c, hdr_c2])
 print(f"  Step 11 complete. Nat/NT under p={asymmetry_row('nat_signed','gold_ord','x')[6]}, "
       f"Nat/ClinAdj under p={asymmetry_row('nat_signed_cc','cc_cons_ord','x')[6]}")
 

@@ -40,15 +40,15 @@ figS6_cc_vs_nurse_confusion.png/pdf
 
 ============================================================
 RENDER STATUS:
-  figS1_confusion_matrices: OK
-  fig2_dist_comparisons: OK
-  figS2_sensitivity_forest: OK
   fig1_direction_by_dataset: OK
-  figS3_triage_direction_by_level: OK
-  figS5_complaint_heatmap: OK
-  figS4_promptcount: OK
-  figS6_cc_vs_nurse_confusion: OK
-  table1_descriptives: OK
+  fig2_dist_comparisons: OK
   fig3_cc_concordance: OK
   fig4_promptcount_multiturn: OK
+  table1_descriptives: OK
   extended_data_fig1_study_design: OK
+  figS1_confusion_matrices: OK
+  figS2_sensitivity_forest: OK
+  figS3_triage_direction_by_level: OK
+  figS4_promptcount: OK
+  figS5_complaint_heatmap: OK
+  figS6_cc_vs_nurse_confusion: OK

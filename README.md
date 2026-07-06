@@ -25,10 +25,25 @@ datasets (39 clinically-authored vignettes, 76 emergency-department encounters,
 .
 ├── code/                     # analysis software (MIT)
 │   ├── analysis.py           #   → results workbook (15 sheets)
-│   ├── figures.py            #   → Fig 1–4, Supp Fig 1–6, Extended Data Fig 1, Table 1
+│   ├── figlib.py             #   shared data-loading/plotting helpers for the figure scripts below
+│   ├── fig1_direction_by_dataset.py       # → Figure 1
+│   ├── fig2_dist_comparisons.py           # → Figure 2
+│   ├── fig3_cc_concordance.py             # → Figure 3
+│   ├── fig4_promptcount_multiturn.py      # → Figure 4
+│   ├── table1_descriptives.py             # → Table 1
+│   ├── extended_data_fig1_study_design.py # → Extended Data Figure 1
+│   ├── figS1_confusion_matrices.py        # → Supplementary Figure 1
+│   ├── figS2_sensitivity_forest.py        # → Supplementary Figure 2
+│   ├── figS3_triage_direction_by_level.py # → Supplementary Figure 3
+│   ├── figS4_promptcount.py               # → Supplementary Figure 4
+│   ├── figS5_complaint_heatmap.py         # → Supplementary Figure 5
+│   ├── figS6_cc_vs_nurse_confusion.py     # → Supplementary Figure 6
+│   │                          #   each of the above is independently runnable:
+│   │                          #   python code/<script>.py --input <xlsx> --output results/figures
+│   ├── write_figure_index.py #   → results/figures/figure_index.txt (summary of the above)
 │   ├── render_tableS1.py     #   → Extended Data Table 1 (prompt derivation)
 │   ├── render_grader_table.py#   → Supplementary Table 1 (grader reliability)
-│   ├── run_all.py            #   orchestrates all four steps
+│   ├── run_all.py            #   orchestrates all of the above
 │   └── run                   #   entrypoint for Code Ocean (and local use)
 ├── data/                     # source data (CC BY 4.0, de-identified)
 │   ├── triage_evaluation_dataset.xlsx   # 255-case input (sheet "C")
@@ -36,6 +51,8 @@ datasets (39 clinically-authored vignettes, 76 emergency-department encounters,
 ├── results/                  # shipped outputs (CC BY 4.0)
 │   ├── triage_analysis_results.xlsx     # 15-sheet workbook
 │   └── figures/                         # all figures/tables (.png + .pdf)
+├── reporting/                # manuscript reporting-guideline checklists (CC BY 4.0)
+│   └── supp_table2_strobe_checklist.docx  # STROBE checklist (ED & nurse-line cohorts)
 ├── environment/
 │   └── Dockerfile            # Code Ocean / reproducible environment (incl. Arial)
 ├── requirements.txt
