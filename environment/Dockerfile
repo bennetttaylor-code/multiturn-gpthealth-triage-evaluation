@@ -12,7 +12,15 @@ RUN printf 'deb http://deb.debian.org/debian bookworm contrib non-free non-free-
  && fc-cache -f \
  && rm -rf /var/lib/apt/lists/*
 
-# Install the exact, fully-resolved versions used for the archived release.
-# Build context is the repo root: docker build -f environment/Dockerfile .
-COPY requirements.lock /tmp/requirements.lock
-RUN pip install --no-cache-dir -r /tmp/requirements.lock
+# Install the exact, fully-resolved versions used for the archived release
+# (see requirements.lock at the repo root for provenance/regeneration notes).
+# Versions are inlined rather than COPYing requirements.lock: environment
+# builders (e.g. Code Ocean) build this image before the repository's files
+# are available, so COPY from the repo is not possible at this stage.
+RUN pip install --no-cache-dir \
+      "contourpy==1.3.3" "cycler==0.12.1" "et_xmlfile==2.0.0" "fonttools==4.63.0" \
+      "joblib==1.5.3" "kiwisolver==1.5.0" "matplotlib==3.11.0" "narwhals==2.22.1" \
+      "numpy==2.4.6" "openpyxl==3.1.5" "packaging==26.2" "pandas==3.0.3" \
+      "patsy==1.0.2" "pillow==12.2.0" "pyparsing==3.3.2" "python-dateutil==2.9.0.post0" \
+      "scikit-learn==1.9.0" "scipy==1.17.1" "seaborn==0.13.2" "six==1.17.0" \
+      "statsmodels==0.14.6" "threadpoolctl==3.6.0"
