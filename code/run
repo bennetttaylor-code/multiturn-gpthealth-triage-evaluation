@@ -4,10 +4,18 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 if [ -d /data ] && [ -d /results ]; then
-    # Code Ocean layout: data mounted read-only at /data, outputs written to /results
-    python -u run_all.py --input  /data/triage_evaluation_dataset.xlsx \
-                         --prompts /data/prompt_derivation.xlsx \
-                         --output /results
+    # Code Ocean layout: data mounted read-only at /data, outputs written to
+    # /results. Code Ocean nests each attached Data Asset in its own named
+    # subfolder (e.g. /data/<asset-name>/file.xlsx) rather than flat, so
+    # search for the expected files instead of assuming a fixed depth.
+    DATASET=$(find /data -maxdepth 3 -name 'triage_evaluation_dataset.xlsx' -print -quit)
+    PROMPTS=$(find /data -maxdepth 3 -name 'prompt_derivation.xlsx' -print -quit)
+    if [ -z "$DATASET" ] || [ -z "$PROMPTS" ]; then
+        echo "ERROR: could not find triage_evaluation_dataset.xlsx and/or prompt_derivation.xlsx under /data." >&2
+        echo "  Attach both files (from this repository's data/ folder) as a Data Asset to this capsule." >&2
+        exit 1
+    fi
+    python -u run_all.py --input "$DATASET" --prompts "$PROMPTS" --output /results
 else
     # Local / GitHub clone layout: repository-relative defaults
     python -u run_all.py
