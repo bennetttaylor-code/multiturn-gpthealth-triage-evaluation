@@ -11,6 +11,15 @@ on:
 jobs:
   reproduce:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # "lock": exact archived versions (requirements.lock) — proves the
+        #         pinned environment reproduces published results.
+        # "floor": latest versions satisfying requirements.txt floors —
+        #          early warning that an upstream release breaks the pipeline.
+        deps: [lock, floor]
+    name: reproduce (${{ matrix.deps }})
     steps:
       - uses: actions/checkout@v4
 
@@ -20,7 +29,12 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          if [ "${{ matrix.deps }}" = "lock" ]; then
+            pip install -r requirements.lock
+          else
+            pip install -r requirements.txt
+          fi
 
       - name: Run full pipeline
         run: python code/run_all.py --output ci_out
@@ -43,6 +57,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ci-results
+          name: ci-results-${{ matrix.deps }}
           path: ci_out/
           retention-days: 7

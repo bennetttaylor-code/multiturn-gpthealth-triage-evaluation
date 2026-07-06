@@ -12,7 +12,7 @@ RUN printf 'deb http://deb.debian.org/debian bookworm contrib non-free non-free-
  && fc-cache -f \
  && rm -rf /var/lib/apt/lists/*
 
-# Pinned to the same minimum versions as requirements.txt
-RUN pip install --no-cache-dir \
-      "pandas>=2.0" "openpyxl>=3.1" "numpy>=1.24" "scipy>=1.11" \
-      "scikit-learn>=1.3" "statsmodels>=0.14" "matplotlib>=3.7" "seaborn>=0.12"
+# Install the exact, fully-resolved versions used for the archived release.
+# Build context is the repo root: docker build -f environment/Dockerfile .
+COPY requirements.lock /tmp/requirements.lock
+RUN pip install --no-cache-dir -r /tmp/requirements.lock
