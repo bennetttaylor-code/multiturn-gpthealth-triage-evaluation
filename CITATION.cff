@@ -2,11 +2,11 @@ cff-version: 1.2.0
 message: "If you use this software or data, please cite both the article and this repository."
 title: "Conversational interaction does not ensure triage-disposition alignment in ChatGPT Health: analysis code and data"
 type: software
-version: 1.0.0
-date-released: 2026-07-06
+version: 1.0.1
+date-released: 2026-10-12
 license: MIT
 repository-code: "https://github.com/bennetttaylor-code/multiturn-gpthealth-triage-evaluation"
-doi: 10.5281/zenodo.21223679
+doi: 10.5281/zenodo.21223678
 authors:
   - { given-names: Alvira,      family-names: Tyagi,      affiliation: "Icahn School of Medicine at Mount Sinai" }
   - { given-names: Bennett,     family-names: Taylor,     affiliation: "Icahn School of Medicine at Mount Sinai" }

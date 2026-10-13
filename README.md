@@ -102,7 +102,7 @@ Two de-identified Excel inputs in `data/`:
 | Column | Description |
 |--------|-------------|
 | `DATASET` | Dataset number (1 = vignettes, 2 = ED, 3 = nurse-line) |
-| `Prompt` | Prompt/case identifier |
+| `Prompt` | Prompt/case identifier (Dataset 3 runs 1–85 and 87–141; see note below) |
 | `Grader` | Grader ID (1–5) |
 | `Patient Chief Complaint` | Free-text complaint category |
 | `Age`, `Gender` | Demographics (ED dataset only) |
@@ -115,8 +115,12 @@ Two de-identified Excel inputs in `data/`:
 | `GPT Multiturn Reviewer` | Multi-turn reviewer decision |
 | `Nurse Triage Decision (A-D)` | Nurse-triage reference level |
 
-**`prompt_derivation.xlsx`** — per-case chief complaint and the exact natural and
-multi-turn prompts presented to ChatGPT Health (source of Extended Data Table 1).
+**`prompt_derivation.xlsx`** — per-case chief complaint and the opening prompt for natural and
+multi-turn prompt presented to ChatGPT Health (source of Extended Data Table 1).
+
+**Joining the two files.** `DATASET` + `Prompt` in the evaluation file matches `Dataset` + `Prompt No.` in the derivation file one-to-one for all 255 cases. Dataset 3 Prompt 86 was removed before evaluation as a repeat, so Dataset 3 identifiers run 1–85 and 87–141 (140 cases) in both files. Versions before 1.0.1 numbered the derivation file's Dataset 3 cases 1–140; see `CHANGELOG.md`.
+
+**What the prompts represent.** The released prompts are the opening message of each ChatGPT Health conversation, not the complete model input: natural-condition conversations included follow-up turns (`GPT Natural Prompt Count`), and multi-turn conversations were longer. Clinician adjudication was made considering the whole conversation. Further details cannot be shared at this time. Identical opening messages can therefore carry different reference labels. No released prompt states a patient's age or gender outright, though a few contain indirect cues (e.g., "My baby is having…", vaginal symptoms); age and gender are recorded for the ED dataset only.
 
 **Scale:** A = 0 (home care) → B → C → D = 3 (emergency department); under-triage
 (decision < reference) is the pre-specified safety-critical error direction.
@@ -198,8 +202,7 @@ LLM-versus-reference-standard comparisons, which use a Bonferroni-corrected
 
 ## Citation
 
-Please cite both the article and this repository (see `CITATION.cff`; add the
-Zenodo DOI once minted).
+Please cite both the article and this repository (see `CITATION.cff`). The Zenodo concept DOI [10.5281/zenodo.21223678](https://doi.org/10.5281/zenodo.21223678) always resolves to the latest version.
 
 ## License
 
